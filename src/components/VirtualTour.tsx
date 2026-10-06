@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, RotateCw, Eye, Scan } from 'lucide-react';
-import SplineScene from './SplineScene';
+import { ArchitecturalScene } from './ArchitecturalScene';
 
 const tourHero = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxury%20villa%20aerial%20drone%20view%20sunset%20infinity%20pool%20minimal%20architecture%20cinematic%20lighting%20editorial%20photography&image_size=landscape_16_9';
 const tourInterior = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxury%20modern%20interior%20living%20room%20floor%20to%20ceiling%20windows%20minimal%20design%20warm%20lighting%20high%20end%20furniture%20editorial&image_size=landscape_16_9';
@@ -55,48 +55,42 @@ export default function VirtualTour() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-10 md:mb-14 border border-ivory-200/10"
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${viewMode}-${timeMode}`}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 hidden md:block"
-            >
-              <SplineScene
-                scene="https://prod.spline.design/3jZG5FjPw2VQzTth/scene.splinecode"
-                className="w-full h-full"
-              />
-            </motion.div>
-            <motion.div
-              key={`img-${viewMode}-${timeMode}`}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 md:hidden"
-            >
-              <img
-                src={getCurrentImage()}
-                alt="Virtual tour view"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-transparent to-transparent" />
-            </motion.div>
-          </AnimatePresence>
+          <div className="absolute inset-0 hidden md:block w-full h-full">
+            <ArchitecturalScene />
+          </div>
+
+        
+          <div className="absolute inset-0 md:hidden w-full h-full">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${viewMode}-${timeMode}`}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 w-full h-full"
+              >
+                <img
+                  src={getCurrentImage()}
+                  alt="Virtual tour view"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-transparent to-transparent" />
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/40 to-transparent pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/60 to-transparent pointer-events-none" />
 
-          <div className="absolute top-6 left-6 flex items-center gap-3">
+          <div className="absolute top-6 left-6 flex items-center gap-3 z-10">
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             <span className="text-[10px] tracking-ultra-wide uppercase text-ivory-100/70">
               Live Preview — Villa Aurelia
             </span>
           </div>
 
-          <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 max-w-md">
+          <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 max-w-md z-10">
             <span className="text-[10px] tracking-ultra-wide uppercase text-champagne-400/80 block mb-3">
               {viewMode === 'exterior' ? 'Exterior View' : 'Interior View'} · {timeMode === 'day' ? 'Daylight' : 'Twilight'}
             </span>

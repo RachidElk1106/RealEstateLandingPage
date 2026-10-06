@@ -60,17 +60,19 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
   return (
     <AnimatePresence>
-      {isOpen && (
-        <>
+      {isOpen && (<div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          
+          {/* الخلفية المعتمة */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[90] bg-charcoal-950/80 backdrop-blur-md"
+            className="absolute inset-0 bg-charcoal-950/80 backdrop-blur-md"
             onClick={onClose}
           />
 
+          {/* محتوى النافذة المنبثقة */}
           <motion.div
             role="dialog"
             aria-modal="true"
@@ -78,8 +80,22 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             initial={{ opacity: 0, y: 40, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 sm:inset-auto sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-[100] w-full sm:w-[min(640px,90vw)] sm:max-h-[90vh] overflow-y-auto bg-charcoal-900 border border-ivory-200/10 shadow-2xl"
+            transition={{
+              duration: 0.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              pointer-events-auto
+              relative
+              w-full
+              max-w-[640px]
+              max-h-[90vh]
+              overflow-y-auto
+              bg-charcoal-900
+              border
+              border-ivory-200/10
+              shadow-2xl
+            "
           >
             <button
               onClick={onClose}
@@ -336,7 +352,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </AnimatePresence>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
-import { ArchitecturalScene } from './ArchitecturalScene';
+
 
 interface HeroProps {
   onBookTour: () => void;
 }
+
+const heroBg = 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80';
 
 export default function Hero({ onBookTour }: HeroProps) {
   const containerVariants = {
@@ -31,20 +33,21 @@ export default function Hero({ onBookTour }: HeroProps) {
 
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden bg-charcoal-950">
-      {/* مشهد الـ 3D المحلي باستخدام React Three Fiber (R3F) لضمان الأداء وثبات العرض */}
-      <motion.div
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-0 z-0"
-      >
-        <ArchitecturalScene />
-      </motion.div>
+      
+      <div className="absolute inset-0 z-0">
+        <motion.img
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+          src={heroBg}
+          alt="Luxury Architectural Villa"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-950/70 via-charcoal-950/30 to-charcoal-950 pointer-events-none z-1" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/90 via-charcoal-950/40 to-transparent pointer-events-none z-1" />
+      </div>
 
-      {/* طبقات التدرج الداكنة لزيادة وضوح النصوص وإبراز الفخامة */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal-950/50 via-charcoal-950/30 to-charcoal-950 pointer-events-none z-1" />
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/80 via-charcoal-950/20 to-transparent pointer-events-none z-1" />
-
+     
       <div className="relative z-10 container-luxury min-h-screen flex flex-col justify-center pb-20 pt-32 md:pt-40">
         <motion.div
           variants={containerVariants}
@@ -54,7 +57,7 @@ export default function Hero({ onBookTour }: HeroProps) {
         >
           <motion.div variants={itemVariants} className="mb-8 md:mb-12 flex items-center gap-4">
             <div className="w-12 h-px bg-gradient-to-r from-champagne-500/60 to-transparent" />
-            <span className="eyebrow">Private Collection · 2026</span>
+            <span className="eyebrow text-ivory-100/70">Private Collection · 2026</span>
           </motion.div>
 
           <motion.h1
@@ -98,7 +101,7 @@ export default function Hero({ onBookTour }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2 }}
-          className="top- absolute bottom-1 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
         >
           <span className="text-[10px] tracking-ultra-wide uppercase text-ivory-100/40">
             Scroll to Discover
@@ -115,7 +118,7 @@ export default function Hero({ onBookTour }: HeroProps) {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1.8 }}
-        className="hidden xl:flex absolute right-10 top-1/2 -translate-y-1/2 flex-col gap-6 items-end z-10"
+        className="hidden xl:flex absolute right-10 top-1/2 -translate-y-1/2 flex-col gap-6 items-end z-10 pointer-events-none"
       >
         <div className="flex flex-col gap-2 items-end">
           <span className="text-[10px] tracking-ultra-wide uppercase text-champagne-400/80">

@@ -275,14 +275,7 @@ export default function ContactSection({ onBookTour }: ContactSectionProps) {
 
                   <div>
                     <span
-                      className="
-                        text-[10px]
-                        tracking-ultra-wide
-                        uppercase
-                        text-ivory-100/40
-                        block
-                        mb-1.5
-                      "
+                      className="text-[10px] tracking-ultra-wide uppercase text-ivory-100/40 block mb-1.5"
                     >
                       Global Locations
                     </span>
@@ -300,11 +293,9 @@ export default function ContactSection({ onBookTour }: ContactSectionProps) {
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

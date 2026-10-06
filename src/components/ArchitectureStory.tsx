@@ -71,8 +71,6 @@ export default function ArchitectureStory() {
        <div className="py-24 md:py-36 lg:py-44 bg-charcoal-950 text-ivory-50 overflow-hidden">
       <div className="container-luxury mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          
-         
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -98,7 +96,6 @@ export default function ArchitectureStory() {
               Each residence integrates seamlessly with its landscape through considered orientation, framed views, and indoor-outdoor transitions that dissolve the boundary between shelter and nature.
             </p>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -115,7 +112,6 @@ export default function ArchitectureStory() {
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>
-
         </div>
       </div>
     </div>

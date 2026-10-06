@@ -236,7 +236,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           )}
                         </div>
                       </div>
-
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                           <label className="flex items-center gap-2 text-[11px] tracking-ultra-wide uppercase text-ivory-100/50 mb-2.5">

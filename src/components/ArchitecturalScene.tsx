@@ -8,7 +8,7 @@ interface ArchitecturalSceneProps {
   timeMode: 'day' | 'night';
 }
 
-const MODEL_PATH = `${import.meta.env.BASE_URL}models/luxury_villa.glb`;
+const MODEL_PATH = `${import.meta.env.BASE_URL}models/luxury_villa_opt.glb`;
 function CameraController({ viewMode }: { viewMode: 'exterior' | 'interior' }) {
   const { camera } = useThree()
   const targetPosition = useMemo(

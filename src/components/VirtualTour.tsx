@@ -3,11 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, RotateCw, Eye, Scan } from 'lucide-react';
 import ArchitecturalScene from './ArchitecturalScene';
 
+import tourExteriorDay from '../assets/images/exterior_day.png';
+import tourExteriorNight from '../assets/images/exterior_night.jpg';
+import tourInteriorDay from '../assets/images/interior_day.jpg';
+import tourInteriorNight from '../assets/images/interior_night.jpg';
 
-const tourExteriorDay = '/public/images/exterior_day.png';
-const tourExteriorNight = '/public/images/exterior_night.jpg';
-const tourInteriorDay = '/public/images/interior_day.jpg';
-const tourInteriorNight = '/public/images/interior_night.jpg';
+export const tourOptions = [
+  { id: 'exterior-day', name: 'exterior - day', image: tourExteriorDay },
+  { id: 'exterior-night', name: 'exterior - night', image: tourExteriorNight },
+  { id: 'interior-day', name: 'interior - day', image: tourInteriorDay },
+  { id: 'interior-night', name: 'interior - night', image: tourInteriorNight },
+];
 
 type ViewMode = 'exterior' | 'interior';
 type TimeMode = 'day' | 'night';

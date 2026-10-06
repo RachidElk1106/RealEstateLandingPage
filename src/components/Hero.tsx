@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import type { Variants } from "framer-motion";
 import { ArrowRight, Play } from 'lucide-react';
 interface HeroProps {
   onBookTour: () => void;
@@ -17,7 +18,7 @@ export default function Hero({ onBookTour }: HeroProps) {
     },
   };
 
-  const itemVariants = {
+  const itemVariants : Variants = {
     hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,

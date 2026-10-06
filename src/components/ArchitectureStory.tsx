@@ -3,7 +3,6 @@ import { useRef } from 'react';
 
 const architectureHero = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80';
 const architectureSecondary = 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80';
-const architectureTertiary = 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80';
 
 export default function ArchitectureStory() {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, RotateCw, Eye, Scan } from 'lucide-react';
-import { ArchitecturalScene } from './ArchitecturalScene';
+import ArchitecturalScene from './ArchitecturalScene';
 
-const tourHero = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxury%20villa%20aerial%20drone%20view%20sunset%20infinity%20pool%20minimal%20architecture%20cinematic%20lighting%20editorial%20photography&image_size=landscape_16_9';
-const tourInterior = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxury%20modern%20interior%20living%20room%20floor%20to%20ceiling%20windows%20minimal%20design%20warm%20lighting%20high%20end%20furniture%20editorial&image_size=landscape_16_9';
-const tourNight = 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxury%20villa%20exterior%20night%20shot%20dramatic%20architectural%20lighting%20pool%20reflection%20stars%20minimal%20modern%20cinematic&image_size=landscape_16_9';
+
+const tourExteriorDay = '/public/images/exterior_day.png';
+const tourExteriorNight = '/public/images/exterior_night.jpg';
+const tourInteriorDay = '/public/images/interior_day.jpg';
+const tourInteriorNight = '/public/images/interior_night.jpg';
 
 type ViewMode = 'exterior' | 'interior';
 type TimeMode = 'day' | 'night';
@@ -14,10 +16,13 @@ export default function VirtualTour() {
   const [viewMode, setViewMode] = useState<ViewMode>('exterior');
   const [timeMode, setTimeMode] = useState<TimeMode>('day');
 
+  
   const getCurrentImage = () => {
-    if (timeMode === 'night') return tourNight;
-    if (viewMode === 'interior') return tourInterior;
-    return tourHero;
+    if (viewMode === 'exterior') {
+      return timeMode === 'day' ? tourExteriorDay : tourExteriorNight;
+    } else {
+      return timeMode === 'day' ? tourInteriorDay : tourInteriorNight;
+    }
   };
 
   return (
@@ -55,8 +60,8 @@ export default function VirtualTour() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-10 md:mb-14 border border-ivory-200/10"
         >
-          <div className="absolute inset-0 hidden md:block w-full h-full">
-            <ArchitecturalScene />
+         <div className="absolute inset-0 hidden md:block w-full h-full">
+            <ArchitecturalScene viewMode={viewMode} timeMode={timeMode} />
           </div>
 
         

@@ -62,7 +62,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     <AnimatePresence>
       {isOpen && (<div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           
-          {/* الخلفية المعتمة */}
+          
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -72,7 +72,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             onClick={onClose}
           />
 
-          {/* محتوى النافذة المنبثقة */}
           <motion.div
             role="dialog"
             aria-modal="true"

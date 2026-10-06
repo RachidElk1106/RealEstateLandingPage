@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
-
-
 interface HeroProps {
   onBookTour: () => void;
 }
@@ -48,7 +46,7 @@ export default function Hero({ onBookTour }: HeroProps) {
       </div>
 
      
-      <div className="relative z-10 container-luxury min-h-screen flex flex-col justify-center pb-20 pt-32 md:pt-40">
+      <div className="relative z-10 container-luxury min-h-screen flex flex-col justify-center pb-32 pt-32 md:pt-40">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -98,20 +96,36 @@ export default function Hero({ onBookTour }: HeroProps) {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
-        >
-          <span className="text-[10px] tracking-ultra-wide uppercase text-ivory-100/40">
-            Scroll to Discover
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-px h-12 bg-gradient-to-b from-champagne-400/60 to-transparent"
-          />
-        </motion.div>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 2 }}
+  className="
+    absolute
+    bottom-8
+    left-1/2
+    -translate-x-1/2
+    flex
+    flex-col
+    items-center
+    gap-3
+    z-10
+    pointer-events-none
+  "
+>
+  <span className="text-[10px] tracking-ultra-wide uppercase text-ivory-100/40 whitespace-nowrap">
+    Scroll to Discover
+  </span>
+
+  <motion.div
+    animate={{ y: [0, 8, 0] }}
+    transition={{
+      duration: 2,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    }}
+    className="w-px h-12 bg-gradient-to-b from-champagne-400/60 to-transparent"
+  />
+</motion.div>
       </div>
 
       <motion.div

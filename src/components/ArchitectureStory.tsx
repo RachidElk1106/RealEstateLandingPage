@@ -73,7 +73,7 @@ export default function ArchitectureStory() {
       <div className="container-luxury mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
-          {/* العمود الأيسر: النص الفاخر */}
+         
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -100,7 +100,6 @@ export default function ArchitectureStory() {
             </p>
           </motion.div>
 
-          {/* العمود الأيمن: الصورة المعمارية الفاخرة */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -114,7 +113,6 @@ export default function ArchitectureStory() {
                 alt="Architectural Craftsmanship and Materials"
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-1000"
               />
-              {/* إطار وتدرج خفيف يتماشى مع لوحة الألوان */}
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/40 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>

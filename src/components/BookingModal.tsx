@@ -16,6 +16,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     register,
     handleSubmit,
     reset,
+    setError,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<BookingFormSchema>({
     resolver: zodResolver(bookingFormSchema),
@@ -52,9 +53,47 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     }
   }, [isOpen, reset]);
 
-  const onSubmit = async (_data: BookingFormSchema) => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-  };
+  const onSubmit = async (data: BookingFormSchema) => {
+  const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+
+  if (!accessKey) {
+    setError('root', {
+      type: 'manual',
+      message: 'VITE_WEB3FORMS_KEY is missing in your environment variables.',
+    });
+    return;
+  }
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        subject: `New Private Tour Booking: ${data.fullName}`,
+        from_name: 'Villa Aurelia VIP Bookings',
+        ...data,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+      setError('root', {
+        type: 'manual',
+        message: result.message || 'Failed to submit booking request.',
+      });
+    }
+  } catch {
+    setError('root', {
+      type: 'manual',
+      message: 'Network error. Please try again later.',
+    });
+  }
+};
 
   const today = new Date().toISOString().split('T')[0];
 

@@ -1,32 +1,144 @@
-# React + TypeScript + Vite
+# Maison — Luxury Real Estate Experience
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A premium real estate landing page concept featuring immersive 3D architectural visualization, elegant UI design, smooth animations, and a property booking interface.
 
-Currently, two official plugins are available:
+**Live Demo:** https://real-estate-landing-page-bice.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Source Code:** https://github.com/RachidElk1106/RealEstateLandingPage
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview
 
-## Expanding the Oxlint configuration
+Maison is a luxury real estate web experience designed to present high-end properties through cinematic visuals, interactive 3D scenes, and a refined user interface.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+The project focuses on combining modern frontend development, interactive architectural visualization, responsive design, and form validation to create an engaging digital property showcase.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Features
+
+- **Luxury UI Design** — A refined interface inspired by premium real estate brands.
+- **Interactive 3D Visualization** — Explore an architectural villa using a 3D model.
+- **Day & Night Modes** — Switch between different lighting environments.
+- **Interior & Exterior Views** — Change the camera perspective to explore different views of the property.
+- **Smooth Animations** — Animated transitions and interface interactions.
+- **Property Booking Form** — A form for submitting property viewing inquiries.
+- **Form Validation** — Type-safe form data and validation with React Hook Form and Zod.
+- **Responsive Experience** — Layouts adapted for desktop and mobile screens.
+
+## Tech Stack
+
+### Frontend
+- React 19
+- TypeScript
+- Tailwind CSS
+- Vite
+
+### 3D & Architectural Visualization
+- Three.js
+- React Three Fiber
+- Drei
+- GLTF/GLB 3D model loading
+
+### Animation & UI
+- Framer Motion
+- Lucide React
+
+### Forms & Validation
+- React Hook Form
+- Zod
+- `@hookform/resolvers`
+
+### External Integration
+- Web3Forms API for booking inquiry submissions
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/RachidElk1106/RealEstateLandingPage.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd RealEstateLandingPage
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Configure the environment variables as described below.
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open the local URL shown in your terminal.
+
+## Environment Variables
+
+The booking form uses Web3Forms to submit inquiries.
+
+Create a `.env` file in the project root and configure:
+
+```env
+VITE_WEB3FORMS_KEY=your_web3forms_access_key
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Replace the placeholder with your own Web3Forms access key.
+
+**Important:** Vite exposes variables prefixed with `VITE_` to client-side code. Do not store private API secrets in these variables. Use this approach only for a service access key designed for client-side use, and configure appropriate service-side protections where available.
+
+## Production Build
+
+Build the application:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Project Goals
+
+This project was built to explore and demonstrate:
+
+- Component-based development with React.
+- Type-safe UI development with TypeScript.
+- Interactive 3D scenes using Three.js and React Three Fiber.
+- Animation and interface transitions.
+- Form state management and schema-based validation.
+- Responsive frontend development.
+
+## Future Improvements
+
+- Optimize images and 3D assets for faster loading.
+- Improve JavaScript bundle splitting and loading performance.
+- Add accessibility improvements and keyboard navigation.
+- Enhance booking submission feedback and error handling.
+- Expand the property showcase with additional interactive experiences.
+
+## Author
+
+**Rachid**
+
+Frontend Developer | React · TypeScript · Three.js
+
+Explore more projects on [GitHub](https://github.com/RachidElk1106).
